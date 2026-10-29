@@ -1,0 +1,476 @@
+<!doctype html>
+<!--
+  EcoBee - site estatico (HTML + CSS + JavaScript puros, sem servidor).
+  - Numero do WhatsApp e outros dados: assets/js/config.js
+  - Textos e produtos: edite aqui neste arquivo (procure pelos comentarios de cada secao)
+  - Cores e layout: assets/css/estilo.css
+  - Para publicar: arraste esta pasta inteira no Netlify Drop.
+-->
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoBee — Crochê com alma</title>
+    <link rel="icon" type="image/svg+xml" href="assets/ecobee-mark.svg">
+
+    <!-- Fontes do Google: Fraunces (titulos) e DM Sans (textos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
+
+    <link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+<div class="site-shell">
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <!-- ===================== TOPO ===================== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand-mark" href="#inicio" aria-label="EcoBee, voltar ao início"><span class="brand-mark__icon" aria-hidden="true"><span class="brand-mark__hexagon"></span><span class="brand-mark__bee">✦</span></span><span class="brand-mark__word">EcoBee</span></a>
+            <nav class="desktop-nav" aria-label="Navegação principal">
+                                    <a href="#pecas">Peças</a>
+                                    <a href="#manifesto">Nosso jeito</a>
+                                    <a href="#encomendas">Encomendas</a>
+                                    <a href="#instagram">Instagram</a>
+                            </nav>
+
+            <div class="header-actions">
+                <a class="header-instagram" href="#instagram" aria-label="Conheça nosso Instagram">
+                    @ecobee.atelie                </a>
+                <a class="button button--whatsapp button--small" href="https://wa.me/5571983410897?text=Oi%20EcoBee%21%20Quero%20encomendar%20uma%20pe%C3%A7a%20com%20alma." data-whatsapp target="_blank" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg><span>Falar com a gente</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></svg></a>
+                <!-- Botao da sacola: o numero (contador) aparece via JavaScript -->
+                <button class="cart-button" type="button" id="btn-abrir-sacola" aria-label="Abrir sacola com 0 itens">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /> <path d="M3 6h18" /> <path d="M16 10a4 4 0 0 1-8 0" /></svg>                    <span id="contador-sacola" hidden>0</span>
+                </button>
+
+                <!-- Botao do menu no celular: alterna entre os icones "menu" e "fechar" -->
+                <button class="menu-toggle" type="button" id="btn-menu" aria-label="Abrir menu" aria-expanded="false">
+                    <span id="icone-menu"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /> <line x1="4" x2="20" y1="18" y2="18" /></svg></span>
+                    <span id="icone-menu-fechar" hidden><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></svg></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu do celular -->
+        <div class="mobile-nav" id="menu-mobile">
+                            <a href="#pecas">
+                    Peças                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></svg>                </a>
+                            <a href="#manifesto">
+                    Nosso jeito                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></svg>                </a>
+                            <a href="#encomendas">
+                    Encomendas                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></svg>                </a>
+                            <a href="#instagram">
+                    Instagram                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></svg>                </a>
+                    </div>
+    </header>
+
+    <!-- ===================== SACOLA (gaveta lateral) ===================== -->
+    <div class="cart-backdrop" id="fundo-sacola" aria-hidden="true"></div>
+
+    <aside class="cart-drawer" id="sacola" aria-label="Sua sacola" aria-hidden="true">
+        <div class="cart-drawer__header">
+            <div>
+                <p class="card-eyebrow">Seu cantinho de compras</p>
+                <h2>Sua sacola <span id="sacola-quantidade">(0)</span></h2>
+            </div>
+            <button class="cart-close" type="button" id="btn-fechar-sacola" aria-label="Fechar sacola">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></svg>            </button>
+        </div>
+
+        <!-- Estado: sacola vazia -->
+        <div class="cart-empty" id="sacola-vazia">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /> <path d="M3 6h18" /> <path d="M16 10a4 4 0 0 1-8 0" /></svg>            <p>Sua sacola está esperando<br>uma peça com alma.</p>
+            <a class="button button--primary" href="#pecas" data-fechar-sacola>Ver peças</a>
+        </div>
+
+        <!-- Estado: sacola com itens (preenchida pelo JavaScript) -->
+        <div id="sacola-cheia" hidden>
+            <div class="cart-lines" id="sacola-linhas"></div>
+            <div class="cart-summary">
+                <div>
+                    <span>Total demonstrativo</span>
+                    <strong id="sacola-total">R$ 0,00</strong>
+                </div>
+                <p>
+                    O checkout Shopify será conectado quando a conta da loja estiver
+                    criada. Por enquanto, reserve pelo WhatsApp.
+                </p>
+                <a class="button button--whatsapp" id="sacola-whatsapp" href="#" data-whatsapp target="_blank" rel="noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg> Reservar pelo WhatsApp <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></svg>                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Modelo de uma linha da sacola (o JavaScript copia este bloco para cada item) -->
+    <template id="modelo-linha-sacola">
+        <div class="cart-line">
+            <img src="" alt="">
+            <div class="cart-line__copy">
+                <strong data-campo="nome"></strong>
+                <span data-campo="preco"></span>
+                <div class="quantity-control">
+                    <button type="button" data-acao="diminuir" aria-label="Diminuir"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /></svg></button>
+                    <span data-campo="quantidade"></span>
+                    <button type="button" data-acao="aumentar" aria-label="Aumentar"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /> <path d="M12 5v14" /></svg></button>
+                </div>
+            </div>
+            <button class="cart-remove" type="button" data-acao="remover" aria-label="Remover">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18" /> <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /> <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /> <line x1="10" x2="10" y1="11" y2="17" /> <line x1="14" x2="14" y1="11" y2="17" /></svg>            </button>
+        </div>
+    </template>
+
+    <main id="conteudo">
+<!-- ===================== HERO (abertura) ===================== -->
+<section class="hero section-shell" id="inicio">
+    <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Crochê artesanal, ponto a ponto</p>
+        <h1>Um presente<br><em>com tempo</em> dentro.</h1>
+        <p class="hero-description">
+            Peças únicas para presentear, decorar e guardar na memória —
+            feitas devagar, com fios, cuidado e intenção.
+        </p>
+        <div class="hero-actions">
+            <a class="button button--primary" href="#pecas">
+                Conhecer as peças <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10" /> <path d="M17 7v10H7" /></svg>            </a>
+            <a class="text-link" href="#manifesto">
+                Conheça nosso jeito <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></svg>            </a>
+        </div>
+        <div class="hero-proof">
+            <div class="avatar-stack" aria-hidden="true">
+                <span>e</span><span>c</span><span>o</span>
+            </div>
+            <p>
+                <strong>Pequenas marcas de cuidado.</strong><br>
+                Nenhuma peça sai igual à outra.
+            </p>
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="hero-image-wrap">
+            <img src="assets/images/ecobee-rosas.jpg"
+                 alt="Flores de crochê coloridas em pequenos vasos artesanais">
+            <div class="image-caption">
+                <span class="image-caption__line"></span>
+                <span>uma peça para<br><strong>ficar na história</strong></span>
+            </div>
+        </div>
+        <div class="hero-side-note">
+            <span class="hero-side-note__number">01</span>
+            <span>presentes que<br>têm significado</span>
+        </div>
+    </div>
+</section>
+
+<!-- Faixa de apresentacao -->
+<section class="intro-strip" aria-label="Resumo da proposta EcoBee">
+    <div class="intro-strip__inner">
+        <span class="strip-label">EcoBee / desde sempre</span>
+        <p>Para quem sente que o bonito é aquilo que tem <em>história.</em></p>
+        <a class="strip-arrow" href="#encomendas" aria-label="Ir para encomendas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10" /> <path d="M17 7v10H7" /></svg>        </a>
+    </div>
+</section>
+<!-- ===================== VITRINE DE PECAS ===================== -->
+<section class="products-section section-shell" id="pecas">
+    <div class="section-heading section-heading--products">
+        <div>
+            <p class="eyebrow"><span class="eyebrow-dot eyebrow-dot--rose"></span> Para presentear &amp; morar</p>
+            <h2>Peças com<br><em>jeito de lembrança.</em></h2>
+        </div>
+        <p class="section-lead">
+            Cada criação nasce de uma vontade: deixar a vida um pouquinho mais
+            bonita e cheia de afeto.
+        </p>
+    </div>
+
+    <!-- Para mudar um preco: altere o valor visivel (R$ ...) E o data-preco do botao "Adicionar" -->
+        <div class="product-grid">
+                    <article class="product-card product-card--blush">
+                <div class="product-card__image">
+                    <img src="assets/images/ecobee-rosas.jpg" alt="Flores para guardar">
+                    <span class="product-card__index">01</span>
+                    <span class="product-card__tag">feito à mão</span>
+                </div>
+                <div class="product-card__body">
+                    <p class="card-eyebrow">Decoração afetiva</p>
+                    <h3>Flores para guardar</h3>
+                    <p>Um vasinho que floresce o ano todo — e lembra alguém querido toda vez que você olha.</p>
+                    <div class="product-card__buy-row">
+                        <strong>R$ 89,00</strong>
+                        <!-- Os data-* levam os dados do produto para o JavaScript da sacola -->
+                        <button class="add-to-cart" type="button"
+                                data-nome="Flores para guardar"
+                                data-preco="89"
+                                data-imagem="assets/images/ecobee-rosas.jpg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /> <path d="M3 6h18" /> <path d="M16 10a4 4 0 0 1-8 0" /></svg> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+                    <article class="product-card product-card--moss">
+                <div class="product-card__image">
+                    <img src="assets/images/ecobee-cestinhas.jpg" alt="Cestinha de carinho">
+                    <span class="product-card__index">02</span>
+                    <span class="product-card__tag">feito à mão</span>
+                </div>
+                <div class="product-card__body">
+                    <p class="card-eyebrow">Presente único</p>
+                    <h3>Cestinha de carinho</h3>
+                    <p>Pequenos buquês feitos ponto a ponto para levar cor, aconchego e um sorriso junto.</p>
+                    <div class="product-card__buy-row">
+                        <strong>R$ 119,00</strong>
+                        <!-- Os data-* levam os dados do produto para o JavaScript da sacola -->
+                        <button class="add-to-cart" type="button"
+                                data-nome="Cestinha de carinho"
+                                data-preco="119"
+                                data-imagem="assets/images/ecobee-cestinhas.jpg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /> <path d="M3 6h18" /> <path d="M16 10a4 4 0 0 1-8 0" /></svg> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+                    <article class="product-card product-card--rose">
+                <div class="product-card__image">
+                    <img src="assets/images/ecobee-fios.jpg" alt="Kit fio &amp; pausa">
+                    <span class="product-card__index">03</span>
+                    <span class="product-card__tag">feito à mão</span>
+                </div>
+                <div class="product-card__body">
+                    <p class="card-eyebrow">Para quem ama criar</p>
+                    <h3>Kit fio &amp; pausa</h3>
+                    <p>Texturas, fios e detalhes para transformar um cantinho em um lugar só seu.</p>
+                    <div class="product-card__buy-row">
+                        <strong>R$ 149,00</strong>
+                        <!-- Os data-* levam os dados do produto para o JavaScript da sacola -->
+                        <button class="add-to-cart" type="button"
+                                data-nome="Kit fio &amp; pausa"
+                                data-preco="149"
+                                data-imagem="assets/images/ecobee-fios.jpg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /> <path d="M3 6h18" /> <path d="M16 10a4 4 0 0 1-8 0" /></svg> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+            </div>
+
+    <p class="provisional-note">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /> <path d="M20 3v4" /> <path d="M22 5h-4" /> <path d="M4 17v2" /> <path d="M5 18H3" /></svg> Catálogo demonstrativo —
+        preços e checkout Shopify entram na próxima etapa.
+    </p>
+</section>
+<!-- ===================== MANIFESTO ===================== -->
+<section class="manifesto-section" id="manifesto">
+    <div class="manifesto-section__pattern" aria-hidden="true"></div>
+    <div class="manifesto-inner section-shell">
+        <div class="manifesto-label">
+            <span class="manifesto-label__line"></span>
+            <span>Nosso<br>manifesto</span>
+        </div>
+
+        <div class="manifesto-copy">
+            <p class="eyebrow eyebrow--light">
+                <span class="eyebrow-dot eyebrow-dot--cream"></span> Feito devagar, feito com alma
+            </p>
+            <blockquote>“Nada que importa<br><em>nasce com pressa.</em>”</blockquote>
+            <div class="manifesto-text">
+                <p>
+                    Uma abelha constrói seu mundo uma célula de cada vez, e nós
+                    construímos o nosso um ponto de cada vez.
+                </p>
+                <p>
+                    Cada peça da EcoBee passa pelas mãos de alguém que se importa.
+                    Não existem duas iguais, porque o feito à mão carrega pequenas
+                    marcas de cuidado que nenhuma máquina reproduz.
+                </p>
+            </div>
+            <a class="light-link" href="#processo">
+                O jeito EcoBee <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10" /> <path d="M17 7v10H7" /></svg>            </a>
+        </div>
+
+        <div class="manifesto-aside">
+            <div class="manifesto-quote-mark">“</div>
+            <p>Presente bom é aquele que alguém teve tempo de fazer pensando em você.</p>
+            <span class="signature">EcoBee <span>✦</span></span>
+        </div>
+    </div>
+</section>
+<!-- ===================== O NOSSO JEITO (valores) ===================== -->
+<section class="process-section section-shell" id="processo">
+    <div class="section-heading section-heading--center">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> O nosso jeito</p>
+        <h2>Da ideia ao carinho,<br><em>um ponto por vez.</em></h2>
+    </div>
+
+    <div class="values-grid">
+                    <article class="value-card">
+                <div class="value-card__top">
+                    <span class="value-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" /> <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" /> <path d="m2 15 6 6" /> <path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z" /></svg></span>
+                    <span class="value-card__number">01</span>
+                </div>
+                <h3>Feito por mãos presentes</h3>
+                <p>Cada peça carrega o tempo, a atenção e as pequenas marcas de quem fez.</p>
+            </article>
+                    <article class="value-card">
+                <div class="value-card__top">
+                    <span class="value-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" /> <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" /></svg></span>
+                    <span class="value-card__number">02</span>
+                </div>
+                <h3>Menos excesso, mais sentido</h3>
+                <p>Produzimos em menor escala, escolhendo materiais e ideias que duram.</p>
+            </article>
+                    <article class="value-card">
+                <div class="value-card__top">
+                    <span class="value-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1" /> <path d="M12 8v13" /> <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /> <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></svg></span>
+                    <span class="value-card__number">03</span>
+                </div>
+                <h3>Pensado para alguém</h3>
+                <p>Cores, modelos e detalhes podem contar uma história que é só de vocês.</p>
+            </article>
+            </div>
+
+    <div class="process-bridge">
+        <span class="process-bridge__number">04</span>
+        <p>
+            <strong>Agora é com você.</strong> Conte a história, escolha as
+            cores e a gente transforma tudo em pontos.
+        </p>
+        <a class="process-bridge__link" href="#encomendas">
+            Começar uma encomenda <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></svg>        </a>
+    </div>
+</section>
+<!-- ===================== ENCOMENDAS PERSONALIZADAS ===================== -->
+<section class="custom-section section-shell" id="encomendas">
+    <div class="custom-visual">
+        <img src="assets/images/ecobee-cestinhas.jpg"
+             alt="Cestinhas de flores de crochê coloridas penduradas">
+        <div class="custom-visual__card">
+            <strong>do seu<br>jeitinho</strong>
+            <span>cores + modelo<br>+ intenção</span>
+        </div>
+    </div>
+
+    <div class="custom-copy">
+        <p class="eyebrow"><span class="eyebrow-dot eyebrow-dot--rose"></span> Encomendas personalizadas</p>
+        <h2>Tem uma ideia<br>morando aí?</h2>
+        <p class="custom-lead">
+            A gente transforma em crochê. Você escolhe as cores, conta para
+            quem é e nós cuidamos do resto — com calma, conversa e muito carinho.
+        </p>
+        <ul class="check-list">
+                            <li><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span> Cores que combinam com a sua história</li>
+                            <li><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span> Modelos pensados para presentear ou decorar</li>
+                            <li><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span> Um processo acompanhado de perto</li>
+                    </ul>
+        <a class="button button--whatsapp " href="https://wa.me/5500000000000?text=Oi%20EcoBee%21%20Quero%20encomendar%20uma%20pe%C3%A7a%20com%20alma." data-whatsapp target="_blank" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg><span>Conversar sobre uma ideia</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></svg></a>        <p class="custom-footnote">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3" /> <path d="M8.12 8.12 12 12" /> <path d="M20 4 8.12 15.88" /> <circle cx="6" cy="18" r="3" /> <path d="M14.8 14.8 20 20" /></svg> Cada encomenda é um pequeno projeto feito só para você.
+        </p>
+    </div>
+</section>
+<!-- ===================== CONSUMO CONSCIENTE ===================== -->
+<section class="conscious-section">
+    <div class="conscious-inner section-shell">
+        <div class="conscious-copy">
+            <p class="eyebrow"><span class="eyebrow-dot eyebrow-dot--cream"></span> Escolher com consciência</p>
+            <h2>Menos pressa.<br><em>Mais sentido.</em></h2>
+            <p>
+                Em um mundo de coisas produzidas aos montes, escolhemos o
+                contrário: peças para durar, para presentear, para guardar na
+                memória e no coração.
+            </p>
+        </div>
+
+        <div class="conscious-facts">
+            <div class="fact-item">
+                <span>01</span>
+                <p>produção<br><strong>em menor escala</strong></p>
+            </div>
+            <div class="fact-item">
+                <span>02</span>
+                <p>tempo para<br><strong>fazer bem feito</strong></p>
+            </div>
+            <div class="fact-item">
+                <span>03</span>
+                <p>valor para<br><strong>o trabalho manual</strong></p>
+            </div>
+        </div>
+
+        <div class="conscious-symbol" aria-hidden="true">⌁</div>
+    </div>
+</section>
+<!-- ===================== INSTAGRAM ===================== -->
+<section class="instagram-section section-shell" id="instagram">
+    <div class="instagram-card">
+        <div class="instagram-card__copy">
+            <p class="eyebrow"><span class="eyebrow-dot eyebrow-dot--rose"></span> Um cantinho nosso</p>
+            <h2>Vem ver o que<br><em>estamos criando.</em></h2>
+            <p class="instagram-handle">@ecobee.croche</p>
+            <p class="instagram-bio">
+                🐝 Crochê feito à mão, ponto a ponto<br>
+                🧶 Peças únicas para presentear e decorar<br>
+                ✨ Encomendas personalizadas<br>
+                👇 Peça pelo WhatsApp
+            </p>
+            <a class="text-link" href="#contato">
+                Seguir esse fio <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></svg>            </a>
+        </div>
+
+        <div class="instagram-card__mosaic">
+            <div class="mosaic-photo mosaic-photo--large">
+                <img src="assets/images/ecobee-fios.jpg" alt="Fios de crochê em cores suaves">
+            </div>
+            <div class="mosaic-photo mosaic-photo--small">
+                <img src="assets/images/ecobee-texturas.jpg" alt="Texturas de fios artesanais em tons neutros">
+            </div>
+            <div class="mosaic-note">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></svg>                <span>feito para<br>fazer bem</span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ===================== CHAMADA FINAL ===================== -->
+<section class="final-cta" id="contato">
+    <div class="final-cta__pattern" aria-hidden="true"></div>
+    <div class="final-cta__inner section-shell">
+        <p class="eyebrow eyebrow--light">
+            <span class="eyebrow-dot eyebrow-dot--cream"></span> O próximo ponto pode ser seu
+        </p>
+        <h2>Vamos fazer<br><em>algo com alma?</em></h2>
+        <p>
+            Conta para a gente quem você quer presentear — ou qual cantinho da
+            sua casa pede um pouco mais de carinho.
+        </p>
+        <a class="button button--whatsapp button--cream" href="https://wa.me/5500000000000?text=Oi%20EcoBee%21%20Quero%20encomendar%20uma%20pe%C3%A7a%20com%20alma." data-whatsapp target="_blank" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg><span>Pedir uma encomenda</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></svg></a>    </div>
+</section>
+    </main>
+
+    <!-- ===================== RODAPE ===================== -->
+    <footer class="site-footer">
+        <div class="footer-inner section-shell">
+            <div>
+                <a class="brand-mark" href="#inicio" aria-label="EcoBee, voltar ao início"><span class="brand-mark__icon" aria-hidden="true"><span class="brand-mark__hexagon"></span><span class="brand-mark__bee">✦</span></span><span class="brand-mark__word">EcoBee</span></a>                <p>crochê com alma,<br>ponto a ponto.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#pecas">Peças</a>
+                <a href="#manifesto">Manifesto</a>
+                <a href="#encomendas">Encomendas</a>
+                <a href="#instagram">Instagram</a>
+            </div>
+            <div class="footer-contact">
+                <span>Quer conversar?</span>
+                <a href="https://wa.me/5500000000000?text=Oi%20EcoBee%21%20Quero%20encomendar%20uma%20pe%C3%A7a%20com%20alma." data-whatsapp target="_blank" rel="noreferrer">
+                    WhatsApp <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></svg>                </a>
+            </div>
+        </div>
+        <div class="footer-bottom section-shell">
+            <span>© 2026 EcoBee. Feito devagar, feito com alma.</span>
+            <span>feito com carinho <span aria-hidden="true">✦</span></span>
+        </div>
+    </footer>
+</div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/sacola.js"></script>
+</body>
+</html>

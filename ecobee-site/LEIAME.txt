@@ -1,0 +1,17 @@
+EcoBee - site estatico (HTML + CSS + JavaScript)
+================================================
+
+Nao precisa de PHP nem de servidor. Para ver no computador, de dois cliques no index.html.
+
+PARA PUBLICAR (Netlify Drop)
+1. Abra https://app.netlify.com/drop
+2. Arraste esta pasta inteira (ecobee-site) para la.
+
+ONDE MEXER
+- assets/js/config.js    -> numero do WhatsApp (troque o 5500000000000 pelo numero real)
+- index.html             -> textos, produtos e precos (cada secao tem um comentario)
+- assets/css/estilo.css  -> cores e layout
+- assets/images/         -> fotos (para trocar, mantenha o mesmo nome do arquivo)
+
+PARA MUDAR UM PRECO
+Altere o valor que aparece (R$ 89,00) e tambem o data-preco="89" do botao Adicionar do mesmo produto.
